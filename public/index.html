@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Sent Event Demo</title>
+</head>
+<body>
+    <h3>Sever Sent Events Demo</h3>
+    <div id="data-container"></div>
+    <script>
+        let sse = new EventSource("http://localhost:1000/stream");
+        let elem = document.getElementById('data-container');
+        sse.onmessage = (res) =>{ 
+            elem.innerHTML = res.data;
+        };
+    </script>
+</body>
+</html>
