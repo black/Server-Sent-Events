@@ -4,10 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Server Sent Event Demo</title>
+    <style>
+        body{
+            padding: 10%;
+            font-family: sans-serif;
+        }
+
+       .card{
+            width: fit-content;
+            background: #f8f8f8;
+            border-radius: 5px;
+            border: 1px solid #eee;
+            padding: 10px;
+        }
+
+        span{
+            font-size: 10px;
+            font-style: italic;
+            opacity: 0.75;
+        }
+    </style>
 </head>
 <body>
-    <h3>Sever Sent Events Demo</h3>
-    <div id="data-container"></div>
+    <div class="card">
+        <h3 class="op">Sever Sent Events Demo</h3>
+        <p id="data-container"></p>
+        <span >
+            This data is coming from the server. It is not a timer running in the browser. 
+        </span>
+    </div>
     <script>
         let sse = new EventSource("http://localhost:1000/stream");
         let elem = document.getElementById('data-container');
